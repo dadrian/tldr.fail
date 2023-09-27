@@ -1,7 +1,7 @@
 html * {
     font-family: system-ui, sans-serif;
 }
-code * {
+code {
     font-family: ui-monospace, monospace;
 }
 h1 {
