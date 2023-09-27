@@ -16,9 +16,9 @@ Unfortunately, some buggy servers are not prepared for clients to start
 supporting post-quantum-secure cryptography. The TLS protocol contains a
 mechanism for the server and client to negotiate the cryptographic algorithms
 used for the connection based on which algorithms are mutally supported by both.
-This means that correctly-implemented servers that have no yet added support for
-the draft post-quantum algorithms should silently ignore the post-quantum option,
-and select a different classical algorithm.
+This means that correctly-implemented servers that have not yet added support
+for the draft post-quantum algorithms should silently ignore the post-quantum
+option, and select a different classical algorithm.
 
 TLS ClientHello messages that offer post-quantum cryptography are larger than
 classical ClientHello messages, and exceed the threshold for transmission in a
@@ -35,10 +35,10 @@ Modern public-key cryptography is secure in the face of a classical computer,
 but can be broken by a quantum computer. Luckily, quantum computers don't exist
 yet!
 
-Post-quantum-secure cryptography is (also shortened to post-quantum
-cryptography), is cryptography that is resistant to quantum computers. Due to
-the power of math, we can design, build, and verify this cryptography using only
-classical (non-quantum) computers.
+Post-quantum-secure cryptography (also shortened to post-quantum cryptography)
+is cryptography that is resistant to quantum computers. Due to the power of
+math, we can design, build, and verify this cryptography using only classical
+(non-quantum) computers.
 
 [NIST][nist] recently ran a [competition][nist-competition] to find the best
 post-quantum cryptographic algorithms, and is in the process of standardizing
@@ -65,9 +65,9 @@ for authenticating digital communications today. Post-quantum signature
 algorithms exist, but still have performance issues that make them difficult to
 integrate into existing authentication systems, such as HTTPS certificates
 (X.509). Luckily, unlike key exchange, the risk to authentication from a quantum
-computer requires a quantum computer to actually exist, since connections are
-authenticated in realtime. The store-then-decrypt attack does not apply to
-authentication algorithms.
+computer requires a sufficiently powerful quantum computer to actually exist,
+since connections are authenticated in realtime. The store-then-decrypt attack
+does not apply to authentication algorithms.
 
 This means the migration to post-quantum secure authentication algorithms is less
 urgent than key exchange. Due to the slow moving nature of the authentication
@@ -105,8 +105,8 @@ start this transition, even if you aren't planning on participating right now.
 
 You can use [this Python script][test-py] to test your server. You can also
 enable `chrome://flags/#enable-tls13-kyber` and then attempt to make an HTTPS
-connection to your server. If the connection fails with ERR_CONNECTION_RESET or
-similar, the server is buggy.
+connection to your server from Chrome. If the connection fails with
+ERR_CONNECTION_RESET or similar, the server is buggy.
 
 ## How do I patch the bug if I'm an implementor?
 
