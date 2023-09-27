@@ -141,3 +141,6 @@ identify and fix it.
 [test-py]: https://gist.github.com/dadrian/f51e7f96aa659937775232cc3576e5f8
 [chrome-kyber]: https://blog.chromium.org/2023/08/protecting-chrome-traffic-with-hybrid.html
 [draft-kyber]: https://datatracker.ietf.org/doc/html/draft-cfrg-schwabe-kyber
+[kyber]: https://pq-crystals.org/kyber/
+[dilithium]: https://pq-crystals.org/dilithium/index.shtml
+[nist-competition]: https://csrc.nist.gov/projects/post-quantum-cryptography
