@@ -1,2 +1,1 @@
-[context.production]
 environment = { GO_VERSION = "1.21.1" }
