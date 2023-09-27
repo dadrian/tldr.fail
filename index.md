@@ -1,7 +1,7 @@
 The migration to post-quantum cryptography is being held back by buggy servers
-that do not correctly implement TLS. These servers reject connections that use
-post-quantum-secure cryptography, instead of negotiating classical cryptography
-if they do not support the experiment post-quantum algorithms.
+that do not correctly implement TLS. Due to a bug, these servers reject
+connections that use post-quantum-secure cryptography, instead of negotiating
+classical cryptography if they do not support post-quantum cryptography.
 
 ## What is the bug?
 
@@ -35,6 +35,18 @@ Modern public-key cryptography is secure in the face of a classical computer,
 but can be broken by a quantum computer. Luckily, quantum computers don't exist
 yet!
 
+Post-quantum-secure cryptography is (also shortened to post-quantum
+cryptography), is cryptography that is resistant to quantum computers. Due to
+the power of math, we can design, build, and verify this cryptography using only
+classical (non-quantum) computers.
+
+[NIST][nist] recently ran a [competition][nist-competition] to find the best
+post-quantum cryptographic algorithms, and is in the process of standardizing
+the winners. Some of the winning post-quantum cryptographic algorithms include
+[Kyber][kyber] for key exchange and key encapsulation, and
+[Dilithium][dilithium] for digital signatures. The IETF is
+[standardizing][draft-kyber] how to integrate this cryptography into TLS.
+
 ## Why is this happening now?
 
 Future quantum computers pose a risk to current Internet traffic through
@@ -43,29 +55,25 @@ information now, and then decrypt it later, once quantum computers exist.
 Mitigating this threat requires deploying a post-quantum key exchange mechanism
 _now_.
 
+To start mitigating the store-then-decrypt attack, [Chrome is in the
+process][chrome-kyber] of rolling out a post-quantum key exchange.
+
 ## What about authentication?
 
-Quantum computers are capable of breaking the digital signature algorithms used for authenticating
-digital communications today. Post-quantum signature algorithms exist, but still
-have performance issues that make them difficult to integrate into existing
-authentication systems, such as HTTPS certificates (X.509). Luckily, unlike key
-exchange, the risk to authentication from a quantum computer requires a quantum
-computer to actually exist, since connections are authenticated in realtime. The
-store-then-decrypt attack does not apply to authentication algorithms.
+Quantum computers are capable of breaking the digital signature algorithms used
+for authenticating digital communications today. Post-quantum signature
+algorithms exist, but still have performance issues that make them difficult to
+integrate into existing authentication systems, such as HTTPS certificates
+(X.509). Luckily, unlike key exchange, the risk to authentication from a quantum
+computer requires a quantum computer to actually exist, since connections are
+authenticated in realtime. The store-then-decrypt attack does not apply to
+authentication algorithms.
 
 This means the migration to post-quantum secure authentication algorithms is less
 urgent than key exchange. Due to the slow moving nature of the authentication
 ecosystems on the Internet, such as the Web PKI, it is important to start this
 migration soon.  However, there is no urgent threat to authentication, like
 there is with key exchange.
-
-## How do I patch the bug if I'm an implementor?
-
-TLS messages contain a two-byte record length field at byte index 3. When
-processing a ClientHello, servers should ensure they've called `read()` until
-the connection has returned the full content of the message, as set in the
-length field. If `read()` returns less bytes than the length of the message,
-servers should loop until they've read the entire message.
 
 ## Does this bug apply to classical cryptography?
 
@@ -78,22 +86,58 @@ bug is not specific to post-quantum cryptography, but is exacerbated by it.
 
 ## How does this affect the migration to post-quantum cryptography?
 
-TODO
+TLS contains a mechanism for negotiating the cryptographic algorithms used for
+the connection. If things were working correctly, servers that don't support
+postquantum cryptography would select a classical algorithm. Unfortunately,
+these buggy servers fail on connections that _offer_ postquantum cryptography.
+This means clients cannot start the rollout of postquantum cryptography without
+risking breaking access to sites hosted on buggy servers.
 
-## I'm ot migrating to post-quantum cryptography until later. Why do I need to do anything now?
+## I'm not migrating to post-quantum cryptography until later. Why do I need to do anything now?
 
-TODO
+You should still [make sure][test-py] your server doesn't have this bug,
+especially if you're a server implementor. Clients are starting to deploy
+post-quantum cryptography, and while you don't need to update your server to
+support draft standards, you don't want to prevent clients from being able to
+start this transition, even if you aren't planning on participating right now.
+
+## How can I tell if my server has this bug?
+
+You can use [this Python script][test-py] to test your server. You can also
+enable `chrome://flags/#enable-tls13-kyber` and then attempt to make an HTTPS
+connection to your server. If the connection fails with ERR_CONNECTION_RESET or
+similar, the server is buggy.
+
+## How do I patch the bug if I'm an implementor?
+
+TLS messages contain a two-byte record length field at byte index 3. When
+processing a ClientHello, servers should ensure they've called `read()` until
+the connection has returned the full content of the message, as set in the
+length field. If `read()` returns less bytes than the length of the message,
+servers should loop until they've read the entire message.
+
+## I'm a network administrator? How does this affect me?
+
+You may be using a vendor that has buggy servers or a buggy middlebox. You
+should contact your vendor and request that they patch their software. You can
+provide this website for more information.
 
 ## Why are you calling this `tldr.fail`?
 
-The bug is that servers don't read the whole ClientHello, likely because it was
-"too long" for a single packet.
+The bug is that servers "didn't read" the whole ClientHello, likely because it
+was "too long" for a single packet, and then erroneously "fail" the connection.
 
 ## This isn't a vulnerability, why do you have a website?
 
 This bug appears in a lot of servers and is holding back the Internet's
 migration to post-quantum secure cryptography. If things were operating
 correctly, clients could deploy support for post-quantum cryptography and then
-servers would slowly opt-in. Instead, we're stuck, because properly implemented
-clients that deploy post-quantum cryptography can completely fail to open
-connections to buggy servers.
+servers would slowly opt-in. Instead, we're stuck, because buggy servers are
+rejecting connections from properly implemented clients that deploy post-quantum
+cryptography. These clients are then unable to load sites served by the buggy
+server. This site serves as a reference for why the bug is important, and how to
+identify and fix it.
+
+[test-py]: https://gist.github.com/dadrian/f51e7f96aa659937775232cc3576e5f8
+[chrome-kyber]: https://blog.chromium.org/2023/08/protecting-chrome-traffic-with-hybrid.html
+[draft-kyber]: https://datatracker.ietf.org/doc/html/draft-cfrg-schwabe-kyber
