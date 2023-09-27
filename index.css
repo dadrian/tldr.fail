@@ -1,0 +1,14 @@
+html * {
+    font-family: system-ui, sans-serif;
+}
+h1 {
+  font-size: 2em;
+  text-align: center;
+}
+h1, h2, h3 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 400;
+}
+body {
+    margin: 8px;
+}
