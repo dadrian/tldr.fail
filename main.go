@@ -80,7 +80,7 @@ func render(md []byte, tmpl, css string) (*template.Template, map[string]any, er
 	if err := goldmark.Convert(md, &buf); err != nil {
 		return nil, nil, fmt.Errorf("unable to render markdown: %w", err)
 	}
-	t, err := template.New("index.html").Parse(base)
+	t, err := template.New("index.html").Parse(tmpl)
 	if err != nil {
 		return nil, nil, fmt.Errorf("unable to parse index.html", err)
 	}
