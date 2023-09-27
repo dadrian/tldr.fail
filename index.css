@@ -1,6 +1,9 @@
 html * {
     font-family: system-ui, sans-serif;
 }
+code * {
+    font-family: ui-monospace, monospace;
+}
 h1 {
   font-size: 2em;
   text-align: center;
