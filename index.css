@@ -18,7 +18,7 @@ p {
     background-color: rgb(70, 70, 70);
 }
 #logo {
-    max-height: 250px;
+    max-height: 360px;
 }
 #container {
     display: flex;
