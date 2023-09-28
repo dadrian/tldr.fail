@@ -30,6 +30,9 @@ header {
     margin-left: 16px;
     margin-right: 16px;
 }
+footer {
+    margin-left: 16px;
+}
 h1 {
   text-align: center;
   line-height: 72px;
