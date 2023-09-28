@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"path"
 	"sync"
 	"text/template"
 
@@ -50,10 +51,9 @@ func serve(t *template.Template, data any) {
 				if err := t.Execute(w, data); err != nil {
 					log.Printf("error writing template: %s", err)
 				}
-			default:
-				w.WriteHeader(404)
 				return
 			}
+			http.ServeFile(w, r, path.Join("static", r.URL.Path))
 		}))
 	}()
 	wg.Wait()

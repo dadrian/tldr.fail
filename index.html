@@ -8,10 +8,17 @@
     </style>
   </head>
   <body>
-    <h1>tldr.fail</h1>
-    {{ .Content }}
-    <footer>
-      <small>To contact the authors, create an issue on <a href="https://github.com/dadrian/tldr.fail">Github</a></small>
-    </footer>
+    <div id="container">
+    <header>
+      <div id="line">
+        <h1>tldr.fail</h1>
+      </div>
+      <img async src="logo.svg" id="logo" />
+    </header>
+      {{ .Content }}
+      <footer>
+        <small>To contact the authors, create an issue on <a href="https://github.com/dadrian/tldr.fail">Github</a></small>
+      </footer>
+    </div>
   </body>
 </html>
