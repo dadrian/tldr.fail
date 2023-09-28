@@ -32,12 +32,14 @@ header {
 }
 h1 {
   text-align: center;
+  line-height: 72px;
   font-size: 72px;
   font-family: ui-monospace, monospace;
   color: #fff;
   background-color: #464646;
   margin: 0px;
-  height: 120px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 body {
     margin: 0px;
