@@ -138,7 +138,7 @@ cryptography. These clients are then unable to load sites served by the buggy
 server. This site serves as a reference for why the bug is important, and how to
 identify and fix it.
 
-[test-py]: https://gist.github.com/dadrian/f51e7f96aa659937775232cc3576e5f8
+[test-py]: https://github.com/dadrian/tldr.fail/blob/main/tldr_fail_test.py
 [chrome-kyber]: https://blog.chromium.org/2023/08/protecting-chrome-traffic-with-hybrid.html
 [draft-kyber]: https://datatracker.ietf.org/doc/html/draft-cfrg-schwabe-kyber
 [kyber]: https://pq-crystals.org/kyber/
