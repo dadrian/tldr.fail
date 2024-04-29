@@ -27,15 +27,15 @@ import time
 
 def u8_prefix(b):
     assert len(b) < (1 << 8)
-    return len(b).to_bytes(1) + b
+    return len(b).to_bytes(1, byteorder='big') + b
 
 def u16_prefix(b):
     assert len(b) < (1 << 16)
-    return len(b).to_bytes(2) + b
+    return len(b).to_bytes(2, byteorder='big') + b
 
 def u24_prefix(b):
     assert len(b) < (1 << 24)
-    return len(b).to_bytes(3) + b
+    return len(b).to_bytes(3, byteorder='big') + b
 
 
 # A sample ClientHello body up to the extension list.
@@ -99,18 +99,18 @@ OTHER_EXTENSIONS = bytes.fromhex(
     "030303020301")
 
 def make_extension(typ, body):
-    return typ.to_bytes(2) + u16_prefix(body)
+    return typ.to_bytes(2, byteorder='big') + u16_prefix(body)
 
 def make_server_name(name):
     body = u16_prefix(b"\x00" + u16_prefix(name.encode("ascii")))
     return make_extension(0, body)
 
 def make_supported_groups(groups):
-    body = u16_prefix(b"".join(g.to_bytes(2) for g in groups))
+    body = u16_prefix(b"".join(g.to_bytes(2, byteorder='big') for g in groups))
     return make_extension(10, body)
 
 def make_key_share_entry(group, val):
-    return group.to_bytes(2) + u16_prefix(val)
+    return group.to_bytes(2, byteorder='big') + u16_prefix(val)
 
 def make_key_share(entries):
     body = u16_prefix(
