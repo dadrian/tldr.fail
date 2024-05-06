@@ -13,6 +13,8 @@ import (
 	"text/template"
 
 	"github.com/yuin/goldmark"
+	"github.com/yuin/goldmark/extension"
+	"github.com/yuin/goldmark/parser"
 )
 
 //go:embed index.md
@@ -77,12 +79,18 @@ func reload() (*template.Template, map[string]any, error) {
 
 func render(md []byte, tmpl, css string) (*template.Template, map[string]any, error) {
 	buf := bytes.Buffer{}
-	if err := goldmark.Convert(md, &buf); err != nil {
+	g := goldmark.New(
+		goldmark.WithExtensions(extension.Table),
+		goldmark.WithParserOptions(
+			parser.WithAttribute(),
+		),
+	)
+	if err := g.Convert(md, &buf); err != nil {
 		return nil, nil, fmt.Errorf("unable to render markdown: %w", err)
 	}
 	t, err := template.New("index.html").Parse(tmpl)
 	if err != nil {
-		return nil, nil, fmt.Errorf("unable to parse index.html", err)
+		return nil, nil, fmt.Errorf("unable to parse index.html: %w", err)
 	}
 	data := map[string]any{
 		"Content": buf.String(),

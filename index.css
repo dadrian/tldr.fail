@@ -50,3 +50,31 @@ body {
     flex-direction: row;
     justify-content: center;
 }
+table {
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+th {
+    border-bottom: #464646;
+    border-bottom-width: 2pt;
+    border-bottom-style: solid;
+}
+td {
+    padding: 8px;
+    margin-left: 8px;
+    margin-right: 8px;
+    border-color: #808080;
+    border-width: 1px;
+    border-style: solid;
+}
+table tr:last-child td {
+    border-bottom: 0;
+}
+table tr td:first-child,
+table tr th:first-child {
+    border-left: 0;
+}
+table tr td:last-child,
+table tr th:last-child {
+    border-right: 0;
+}
