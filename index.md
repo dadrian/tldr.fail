@@ -144,6 +144,28 @@ cryptography. These clients are then unable to load sites served by the buggy
 server. This site serves as a reference for why the bug is important, and how to
 identify and fix it.
 
+# Deployment Status
+
+## Deployment
+
+Browser | Windows        | Mac           | Linux         | ChromeOS      | Android              | iOS
+------- | -------------- | ------------- | ------------- | ------------- | -------------------- | ----------- 
+Chrome  | Chrome 124     | Chrome 124    | Chrome 124    | Chrome 124    | 10% since Chrome 118 | n/a[^1]
+Firefox | `about:config` |`about:config` |`about:config` | n/a[^2]       |`about:config`        | n/a[^1]
+Safari  | Unavailable    | Unavailable   | Unavailable   | n/a[^2]       | n/a[^3]              | Unavailable
+
+## Known Incompatibilities
+
+Product | Status | Discovered | Via         | Patched | Links              | Notes
+------- | ------ | ---------- | ----------- | ------- | ------------------ | -----
+Vercel  |        | 2023-08-15 | Chrome Beta | 2023-08-23 | [Twitter][twitter-vercel] |
+ZScalar |        | 2023-08-17 | Chrome Beta | 2023-09-28 | |
+
+[^1]: All browsers on iOS internally use WebKit, and so the rollout is dependent on Apple.
+[^2]: There is no Firefox or Safari for ChromeOS.
+[^3]: There is no Safari for Android.
+
+
 [test-py]: https://github.com/dadrian/tldr.fail/blob/main/tldr_fail_test.py
 [chrome-kyber]: https://blog.chromium.org/2023/08/protecting-chrome-traffic-with-hybrid.html
 [draft-kyber]: https://datatracker.ietf.org/doc/html/draft-cfrg-schwabe-kyber
@@ -151,3 +173,5 @@ identify and fix it.
 [dilithium]: https://pq-crystals.org/dilithium/index.shtml
 [nist-competition]: https://csrc.nist.gov/projects/post-quantum-cryptography
 [nist]: https://nist.gov
+
+[twitter-vercel]: https://twitter.com/juliusrickert/status/1691023958999760896
