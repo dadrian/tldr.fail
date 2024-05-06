@@ -58,6 +58,11 @@ _now_.
 To start mitigating the store-then-decrypt attack, [Chrome is in the
 process][chrome-kyber] of rolling out a post-quantum key exchange.
 
+## What is the status of post-quantum cryptography in browsers?
+
+As of Chrome 124, the [draft post-quantum key exchange][draft-kyber] is enabled
+by default on _desktop_ platforms (not Android).
+
 ## What about authentication?
 
 Quantum computers are capable of breaking the digital signature algorithms used
