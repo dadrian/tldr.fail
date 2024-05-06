@@ -80,7 +80,7 @@ func reload() (*template.Template, map[string]any, error) {
 func render(md []byte, tmpl, css string) (*template.Template, map[string]any, error) {
 	buf := bytes.Buffer{}
 	g := goldmark.New(
-		goldmark.WithExtensions(extension.Table),
+		goldmark.WithExtensions(extension.Table, extension.Footnote),
 		goldmark.WithParserOptions(
 			parser.WithAttribute(),
 		),

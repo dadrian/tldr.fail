@@ -144,12 +144,12 @@ cryptography. These clients are then unable to load sites served by the buggy
 server. This site serves as a reference for why the bug is important, and how to
 identify and fix it.
 
-# Deployment Status
+---
 
 ## Deployment
 
 Browser | Windows        | Mac           | Linux         | ChromeOS      | Android              | iOS
-------- | -------------- | ------------- | ------------- | ------------- | -------------------- | ----------- 
+------- | -------------- | ------------- | ------------- | ------------- | -------------------- | -----------
 Chrome  | Chrome 124     | Chrome 124    | Chrome 124    | Chrome 124    | 10% since Chrome 118 | n/a[^1]
 Firefox | `about:config` |`about:config` |`about:config` | n/a[^2]       |`about:config`        | n/a[^1]
 Safari  | Unavailable    | Unavailable   | Unavailable   | n/a[^2]       | n/a[^3]              | Unavailable
@@ -160,6 +160,8 @@ Product | Status | Discovered | Via         | Patched | Links              | Not
 ------- | ------ | ---------- | ----------- | ------- | ------------------ | -----
 Vercel  |        | 2023-08-15 | Chrome Beta | 2023-08-23 | [Twitter][twitter-vercel] |
 ZScalar |        | 2023-08-17 | Chrome Beta | 2023-09-28 | |
+
+_Table last updated 2024-05-06_
 
 [^1]: All browsers on iOS internally use WebKit, and so the rollout is dependent on Apple.
 [^2]: There is no Firefox or Safari for ChromeOS.
