@@ -156,10 +156,10 @@ Safari  | Unavailable    | Unavailable   | Unavailable   | n/a[^2]       | n/a[^
 
 ## Known Incompatibilities
 
-Product | Status | Discovered | Via         | Patched | Links              | Notes
-------- | ------ | ---------- | ----------- | ------- | ------------------ | -----
-Vercel  | ✅     | 2023-08-15 | Chrome Beta | 2023-08-23 | [Twitter][twitter-vercel] |
-ZScalar | ✅     | 2023-08-17 | Chrome Beta | 2023-09-28 | |
+Product | Status | Discovered | Via         | Patched | Links
+------- | ------ | ---------- | ----------- | ------- | ------------------
+Vercel  | ✅     | 2023-08-15 | Chrome Beta | 2023-08-23 | [Twitter][twitter-vercel]
+ZScalar | ✅     | 2023-08-17 | Chrome Beta | 2023-09-28 |
 
 _Table last updated 2024-05-06_
 
