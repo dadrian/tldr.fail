@@ -60,9 +60,8 @@ process][chrome-kyber] of rolling out a post-quantum key exchange.
 
 ## What is the status of post-quantum cryptography in browsers?
 
-As of Chrome 124, released 2024 April 16, the [draft post-quantum key
-exchange][draft-kyber] is enabled by default on _desktop_ platforms (not
-Android). In Firefox, the same draft is behind a flag in `about:config`.
+Post-quantum key exchange is rolling out in browsers. See
+[Deployment](#deployment).
 
 ## What about authentication?
 
@@ -146,7 +145,7 @@ identify and fix it.
 
 ---
 
-## Deployment
+## Deployment { id="deployment" }
 
 Browser | Windows        | Mac           | Linux         | ChromeOS      | Android              | iOS
 ------- | -------------- | ------------- | ------------- | ------------- | -------------------- | -----------
