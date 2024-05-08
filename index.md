@@ -108,10 +108,12 @@ start this transition, even if you aren't planning on participating right now.
 
 ## How can I tell if my server has this bug?
 
-You can use [this Python script][test-py] to test your server. You can also
+The best way to test your server is to use [this Python script][test-py] to test your server. Alternatively,
 enable `chrome://flags/#enable-tls13-kyber` and then attempt to make an HTTPS
 connection to your server from Chrome. If the connection fails with
-ERR_CONNECTION_RESET or similar, the server is buggy.
+ERR_CONNECTION_RESET or similar, the server is buggy. However, it is more likely
+that network conditions may mask the bug when testing with Chrome, rather than
+the Python script.
 
 ## Does this bug apply to QUIC?
 
