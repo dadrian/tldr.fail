@@ -113,6 +113,16 @@ enable `chrome://flags/#enable-tls13-kyber` and then attempt to make an HTTPS
 connection to your server from Chrome. If the connection fails with
 ERR_CONNECTION_RESET or similar, the server is buggy.
 
+## Does this bug apply to QUIC?
+
+The QUIC _protocol_ explicitly does not assume a single-packet ClientHello.
+While it is technically possible to have this bug, it's much less likely due to
+the nature of UDP. Also:
+* QUIC is much newer so there's less long of a tail of buggy endpoints and
+  middleware to worry about
+* QUIC is typically deployed with a TCP fallback/race, so intolerance would look
+  like a TCP fallback and be "fine"
+
 ## How do I patch the bug if I'm an implementor?
 
 TLS messages contain a two-byte record length field at byte index 3. When
