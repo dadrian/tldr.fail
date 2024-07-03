@@ -173,8 +173,9 @@ Vercel  | ✅     | 2023-08-15 | Chrome Beta | 2023-08-23         | [Twitter][tw
 ZScalar | ✅     | 2023-08-17 | Chrome Beta | 2023-09-28         |
 Cisco   |        | 2024-04-23 | Chrome 124 | Unknown            | [Cisco Bug][cisco-bug]
 Envoy   | ✅     | 2024-04-29 | Chrome 124  | n/a (config-only ) | [Github][envoy-github-issue]
+Ingress Nginx | ❌ | 2024-06-03 | Chrome 124 |  | [Github][ingress-nginx-github-issue]
 
-_Table last updated 2024-05-13_
+_Table last updated 2024-07-03_
 
 [^1]: All browsers on iOS internally use WebKit, and so the rollout is dependent on Apple.
 [^2]: There is no Firefox or Safari for ChromeOS.
@@ -192,3 +193,4 @@ _Table last updated 2024-05-13_
 [twitter-vercel]: https://twitter.com/juliusrickert/status/1691023958999760896
 [cisco-bug]: https://quickview.cloudapps.cisco.com/quickview/bug/CSCwj82736
 [envoy-github-issue]: https://github.com/envoyproxy/envoy/issues/33850
+[ingress-nginx-github-issue]: https://github.com/kubernetes/ingress-nginx/issues/11424#issue-2331992771
