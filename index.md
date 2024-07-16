@@ -174,12 +174,14 @@ ZScalar | ✅     | 2023-08-17 | Chrome Beta | 2023-09-28         |
 Cisco   |        | 2024-04-23 | Chrome 124 | Unknown            | [Cisco Bug][cisco-bug]
 Envoy   | ✅     | 2024-04-29 | Chrome 124  | n/a (config-only ) | [Github][envoy-github-issue]
 Ingress Nginx | ❌ | 2024-06-03 | Chrome 124 |  | [Github][ingress-nginx-github-issue]
+Lightspeed Rocket | | 2024-07-16 | Chrome 124 | Unknown[^4] |
 
 _Table last updated 2024-07-03_
 
 [^1]: All browsers on iOS internally use WebKit, and so the rollout is dependent on Apple.
 [^2]: There is no Firefox or Safari for ChromeOS.
 [^3]: There is no Safari for Android.
+[^4]: Older devices are affected. New devices may or may not be affected.
 
 
 [test-py]: https://github.com/dadrian/tldr.fail/blob/main/tldr_fail_test.py
