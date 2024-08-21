@@ -173,7 +173,7 @@ Vercel  | ✅     | 2023-08-15 | Chrome Beta | 2023-08-23         | [Twitter][tw
 ZScalar | ✅     | 2023-08-17 | Chrome Beta | 2023-09-28         |
 Cisco   |        | 2024-04-23 | Chrome 124 | Unknown            | [Cisco Bug][cisco-bug]
 Envoy   | ✅     | 2024-04-29 | Chrome 124  | n/a (config-only ) | [Github][envoy-github-issue]
-Ingress Nginx | ❌ | 2024-06-03 | Chrome 124 |  | [Github][ingress-nginx-github-issue]
+Ingress Nginx | ❌[^5] | 2024-06-03 | Chrome 124 |  | [Github][ingress-nginx-github-issue]
 Lightspeed Rocket | | 2024-07-16 | Chrome 124 | Unknown[^4] |
 
 _Table last updated 2024-07-03_
@@ -182,6 +182,7 @@ _Table last updated 2024-07-03_
 [^2]: There is no Firefox or Safari for ChromeOS.
 [^3]: There is no Safari for Android.
 [^4]: Older devices are affected. New devices may or may not be affected.
+[^5]: Only affects TLS passthrough. Using ingress-nginx to terminate TLS is not affected.
 
 
 [test-py]: https://github.com/dadrian/tldr.fail/blob/main/tldr_fail_test.py
