@@ -175,6 +175,7 @@ Cisco   |        | 2024-04-23 | Chrome 124 | Unknown            | [Cisco Bug][ci
 Envoy   | ✅     | 2024-04-29 | Chrome 124  | n/a (config-only ) | [Github][envoy-github-issue]
 Ingress Nginx | ❌[^5] | 2024-06-03 | Chrome 124 |  | [Github][ingress-nginx-github-issue]
 Lightspeed Rocket | | 2024-07-16 | Chrome 124 | Unknown[^4] |
+Palo Alto | | 2024-10-25 | Golang | Unknown[^6] | [Github][github-go-pa]
 
 _Table last updated 2024-07-03_
 
@@ -197,3 +198,4 @@ _Table last updated 2024-07-03_
 [cisco-bug]: https://quickview.cloudapps.cisco.com/quickview/bug/CSCwj82736
 [envoy-github-issue]: https://github.com/envoyproxy/envoy/issues/33850
 [ingress-nginx-github-issue]: https://github.com/kubernetes/ingress-nginx/issues/11424#issue-2331992771
+[github-go-pa]: https://github.com/golang/go/issues/70047#issuecomment-2437695874
