@@ -185,6 +185,7 @@ _Table last updated 2024-07-03_
 [^3]: There is no Safari for Android.
 [^4]: Older devices are affected. New devices may or may not be affected.
 [^5]: Only affects TLS passthrough. Using ingress-nginx to terminate TLS is not affected.
+[^6]: This may only affect certain PA products, and certain version ranges. Details unknown.
 
 
 [test-py]: https://github.com/dadrian/tldr.fail/blob/main/tldr_fail_test.py
