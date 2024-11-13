@@ -178,7 +178,7 @@ Lightspeed Rocket | | 2024-07-16 | Chrome 124 | Unknown[^4] |
 Palo Alto | | 2024-10-25 | Golang | Unknown[^6] | [Github][github-go-pa]
 Apache Trafficserver | ❌ | 2024-11-13 | Chrome |  | [Github][github-apache]
 
-_Table last updated 2024-07-03_
+_Table last updated 2024-11-13_
 
 [^1]: All browsers on iOS internally use WebKit, and so the rollout is dependent on Apple.
 [^2]: There is no Firefox or Safari for ChromeOS.
