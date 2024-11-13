@@ -161,7 +161,7 @@ identify and fix it.
 
 Browser | Windows        | Mac           | Linux         | ChromeOS      | Android              | iOS
 ------- | -------------- | ------------- | ------------- | ------------- | -------------------- | -----------
-Chrome  | Chrome 124     | Chrome 124    | Chrome 124    | Chrome 124    | 10% since Chrome 118 | n/a[^1]
+Chrome  | Chrome 124     | Chrome 124    | Chrome 124    | Chrome 124    | 1% since Chrome 131  | n/a[^1]
 Firefox | `about:config` |`about:config` |`about:config` | n/a[^2]       |`about:config`        | n/a[^1]
 Safari  | Unavailable    | Unavailable   | Unavailable   | n/a[^2]       | n/a[^3]              | Unavailable
 
@@ -176,6 +176,7 @@ Envoy   | ✅     | 2024-04-29 | Chrome 124  | n/a (config-only ) | [Github][env
 Ingress Nginx | ❌[^5] | 2024-06-03 | Chrome 124 |  | [Github][ingress-nginx-github-issue]
 Lightspeed Rocket | | 2024-07-16 | Chrome 124 | Unknown[^4] |
 Palo Alto | | 2024-10-25 | Golang | Unknown[^6] | [Github][github-go-pa]
+Apache Trafficserver | ❌ | 2024-11-13 | Chrome | [Github][github-apache]
 
 _Table last updated 2024-07-03_
 
@@ -199,3 +200,4 @@ _Table last updated 2024-07-03_
 [envoy-github-issue]: https://github.com/envoyproxy/envoy/issues/33850
 [ingress-nginx-github-issue]: https://github.com/kubernetes/ingress-nginx/issues/11424#issue-2331992771
 [github-go-pa]: https://github.com/golang/go/issues/70047#issuecomment-2437695874
+[github-apache]: https://github.com/apache/trafficserver/issues/11758
