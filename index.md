@@ -176,7 +176,7 @@ Envoy   | ✅     | 2024-04-29 | Chrome 124  | n/a (config-only ) | [Github][env
 Ingress Nginx | ❌[^5] | 2024-06-03 | Chrome 124 |  | [Github][ingress-nginx-github-issue]
 Lightspeed Rocket | | 2024-07-16 | Chrome 124 | Unknown[^4] |
 Palo Alto | | 2024-10-25 | Golang | Unknown[^6] | [Github][github-go-pa]
-Apache Trafficserver | ❌ | 2024-11-13 | Chrome | [Github][github-apache]
+Apache Trafficserver | ❌ | 2024-11-13 | Chrome |  | [Github][github-apache]
 
 _Table last updated 2024-07-03_
 
