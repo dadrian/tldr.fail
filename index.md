@@ -161,7 +161,7 @@ identify and fix it.
 
 Browser | Windows        | Mac           | Linux         | ChromeOS      | Android              | iOS
 ------- | -------------- | ------------- | ------------- | ------------- | -------------------- | -----------
-Chrome  | Chrome 124     | Chrome 124    | Chrome 124    | Chrome 124    | 1% since Chrome 131  | n/a[^1]
+Chrome  | Chrome 124     | Chrome 124    | Chrome 124    | Chrome 124    | Chrome 131           | n/a[^1]
 Firefox | `about:config` |`about:config` |`about:config` | n/a[^2]       |`about:config`        | n/a[^1]
 Safari  | Unavailable    | Unavailable   | Unavailable   | n/a[^2]       | n/a[^3]              | Unavailable
 
