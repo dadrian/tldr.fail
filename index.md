@@ -175,7 +175,8 @@ Cisco   |        | 2024-04-23 | Chrome 124 | Unknown            | [Cisco Bug][ci
 Envoy   | ✅     | 2024-04-29 | Chrome 124  | n/a (config-only ) | [Github][envoy-github-issue]
 Ingress Nginx | ❌[^5] | 2024-06-03 | Chrome 124 |  | [Github][ingress-nginx-github-issue]
 Lightspeed Rocket | | 2024-07-16 | Chrome 124 | Unknown[^4] |
-Palo Alto | | 2024-10-25 | Golang | Unknown[^6] | [Github][github-go-pa]
+Palo Alto | | 2024-10-25 | Go 1.23 | Unknown[^6] | [Github][github-go-pa]
+Broadcom ProxySG | ✅ | 2024-10-31 | Go 1.23 | Late 2024 (7.3.22.1) | [Github][go-70139]
 Apache Trafficserver | ❌ | 2024-11-13 | Chrome |  | [Github][github-apache]
 
 _Table last updated 2024-11-13_
@@ -202,3 +203,4 @@ _Table last updated 2024-11-13_
 [ingress-nginx-github-issue]: https://github.com/kubernetes/ingress-nginx/issues/11424#issue-2331992771
 [github-go-pa]: https://github.com/golang/go/issues/70047#issuecomment-2437695874
 [github-apache]: https://github.com/apache/trafficserver/issues/11758
+[go-70139]: https://github.com/golang/go/issues/70139
