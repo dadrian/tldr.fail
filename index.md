@@ -1,11 +1,11 @@
 The migration to post-quantum cryptography is being held back by buggy servers
 that do not correctly implement TLS. Due to a bug, these servers reject
-connections that use post-quantum-secure cryptography, instead of negotiating
+connections that use post-quantum cryptography, instead of negotiating
 classical cryptography if they do not support post-quantum cryptography.
 
 ## What is the bug?
 
-The Internet is currently beginning a migration to post-quantum secure
+The Internet is currently beginning a migration to quantum-resistant
 cryptography. This migration is important because large-scale quantum computers
 will be powerful enough to break most public-key cryptosystems currently in use
 and compromise digital communications on the Internet and elsewhere. It is
@@ -110,7 +110,7 @@ start this transition, even if you aren't planning on participating right now.
 
 The best way to test your server is to use [this Python script][test-py] to test your server. Alternatively,
 enable `chrome://flags/#enable-tls13-kyber` and then attempt to make an HTTPS
-connection to your server from Chrome. If the connection fails with
+connection to your server from Chrome, or make a connection from Chrome 131 or newer on desktop. If the connection fails with
 ERR_CONNECTION_RESET or similar, the server is buggy. However, it is more likely
 that network conditions may mask the bug when testing with Chrome, rather than
 the Python script.
@@ -175,11 +175,11 @@ Cisco   |        | 2024-04-23 | Chrome 124 | Unknown            | [Cisco Bug][ci
 Envoy   | ✅     | 2024-04-29 | Chrome 124  | n/a (config-only ) | [Github][envoy-github-issue]
 Ingress Nginx | ❌[^5] | 2024-06-03 | Chrome 124 |  | [Github][ingress-nginx-github-issue]
 Lightspeed Rocket | | 2024-07-16 | Chrome 124 | Unknown[^4] |
-Palo Alto | ✅ | 2024-10-25 | Go 1.23 | 2025-03-27 | [Palo Alto Bug][pa-bug] [Github][github-go-pa] 
+Palo Alto | ✅ | 2024-10-25 | Go 1.23 | 2025-03-27 | [Palo Alto Bug][pa-bug], [Github][github-go-pa] 
 Broadcom ProxySG | ✅ | 2024-10-31 | Go 1.23 | Late 2024 (7.3.22.1) | [Github][go-70139]
 Apache Trafficserver | ❌ | 2024-11-13 | Chrome |  | [Github][github-apache]
 
-_Table last updated 2024-11-13_
+_Table last updated 2025-04-04_
 
 [^1]: All browsers on iOS internally use WebKit, and so the rollout is dependent on Apple.
 [^2]: There is no Firefox or Safari for ChromeOS.
