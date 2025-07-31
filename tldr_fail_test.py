@@ -24,6 +24,7 @@
 import argparse
 import socket
 import time
+import struct
 
 def u8_prefix(b):
     assert len(b) < (1 << 8)
@@ -132,10 +133,26 @@ def make_client_hello(name, kyber):
     client_hello = b"\x01" + u24_prefix(CLIENT_HELLO_PREFIX + extensions)    
     return b"\x16\x03\x01" + u16_prefix(client_hello)
 
+def build_proxy_v1_header(src_ip, dst_ip, src_port, dst_port):
+    return f"PROXY TCP4 {src_ip} {dst_ip} {src_port} {dst_port}\r\n".encode()
+
+def build_proxy_v2_header(src_ip, dst_ip, src_port, dst_port):
+    sig = b'\r\n\r\n\0\r\nQUIT\n'
+    ver_cmd = b'\x21'
+    fam_proto = b'\x11'  # TCP over IPv4
+    addr_len = struct.pack('!H', 12)
+    src_ip_bin = socket.inet_aton(src_ip)
+    dst_ip_bin = socket.inet_aton(dst_ip)
+    src_port_bin = struct.pack('!H', src_port)
+    dst_port_bin = struct.pack('!H', dst_port)
+    return sig + ver_cmd + fam_proto + addr_len + src_ip_bin + dst_ip_bin + src_port_bin + dst_port_bin
+
+
 parser = argparse.ArgumentParser(prog="fragmented_client_hello")
 parser.add_argument("host")
 parser.add_argument("--addr")
 parser.add_argument("--port", type=int, default=443)
+parser.add_argument("--proxy-protocol", choices=["v1", "v2"], help="Enable and select PROXY protocol version")
 args = parser.parse_args()
 
 if args.addr is None:
@@ -154,7 +171,18 @@ print()
 
 print("Sending the ClientHello in a single write:")
 sock = socket.create_connection(addr)
+local_ip = sock.getsockname()[0]  # Capture the local IP for proxy header
 try:
+    # Insert Proxy Protocol v1 or v2 header before TLS handshake
+    if args.proxy_protocol == "v1":
+        print("🔧 Using PROXY protocol v1 (default)")
+        header = build_proxy_v1_header(local_ip, args.host, 12345, args.port)
+        sock.sendall(header)
+    elif args.proxy_protocol == "v2":
+        print("🔧 Using PROXY protocol v2")
+        header = build_proxy_v2_header(local_ip, args.host, 12345, args.port)
+        sock.sendall(header)
+
     sock.send(client_hello)
     print(sock.recv(256))
 except Exception as e:
@@ -164,6 +192,16 @@ print()
 print("Sending the ClientHello in two separate writes:")
 sock = socket.create_connection(addr)
 try:
+    # Insert Proxy Protocol v1 or v2 header before TLS handshake
+    if args.proxy_protocol == "v1":
+        print("🔧 Using PROXY protocol v1 (default)")
+        header = build_proxy_v1_header(local_ip, args.host, 12345, args.port)
+        sock.sendall(header)
+    elif args.proxy_protocol == "v2":
+        print("🔧 Using PROXY protocol v2")
+        header = build_proxy_v2_header(local_ip, args.host, 12345, args.port)
+        sock.sendall(header)
+
     half = len(client_hello)//2
     sock.send(client_hello[:half])
     time.sleep(1)
@@ -185,8 +223,18 @@ print()
 
 print("Sending the ClientHello in a single write:")
 sock = socket.create_connection(addr)
-sock.send(client_hello)
 try:
+    # Insert Proxy Protocol v1 or v2 header before TLS handshake
+    if args.proxy_protocol == "v1":
+        print("🔧 Using PROXY protocol v1 (default)")
+        header = build_proxy_v1_header(local_ip, args.host, 12345, args.port)
+        sock.sendall(header)
+    elif args.proxy_protocol == "v2":
+        print("🔧 Using PROXY protocol v2")
+        header = build_proxy_v2_header(local_ip, args.host, 12345, args.port)
+        sock.sendall(header)
+
+    sock.send(client_hello)
     print(sock.recv(256))
 except Exception as e:
     print(e)
@@ -195,6 +243,16 @@ print()
 print("Sending the ClientHello in two separate writes:")
 sock = socket.create_connection(addr)
 try:
+    # Insert Proxy Protocol v1 or v2 header before TLS handshake
+    if args.proxy_protocol == "v1":
+        print("🔧 Using PROXY protocol v1 (default)")
+        header = build_proxy_v1_header(local_ip, args.host, 12345, args.port)
+        sock.sendall(header)
+    elif args.proxy_protocol == "v2":
+        print("🔧 Using PROXY protocol v2")
+        header = build_proxy_v2_header(local_ip, args.host, 12345, args.port)
+        sock.sendall(header)
+
     half = len(client_hello)//2
     sock.send(client_hello[:half])
     time.sleep(1)
