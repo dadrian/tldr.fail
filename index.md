@@ -163,7 +163,7 @@ Browser | Windows        | Mac           | Linux         | ChromeOS      | Andro
 ------- | -------------- | ------------- | ------------- | ------------- | -------------------- | -----------
 Chrome  | Chrome 124     | Chrome 124    | Chrome 124    | Chrome 124    | Chrome 131           | n/a[^1]
 Firefox | `about:config` |`about:config` |`about:config` | n/a[^2]       |`about:config`        | n/a[^1]
-Safari  | Unavailable    | Unavailable   | Unavailable   | n/a[^2]       | n/a[^3]              | Unavailable
+Safari  | Unavailable    | Unavailable   | Unavailable   | n/a[^2]       | n/a[^3]              | iOS 26
 
 ## Known Incompatibilities
 
