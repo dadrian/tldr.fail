@@ -177,7 +177,7 @@ Ingress Nginx | ❌[^5] | 2024-06-03 | Chrome 124 |  | [Github][ingress-nginx-gi
 Lightspeed Rocket | | 2024-07-16 | Chrome 124 | Unknown[^4] |
 Palo Alto | ✅ | 2024-10-25 | Go 1.23 | 2025-03-27 | [Palo Alto Bug][pa-bug], [Github][github-go-pa] 
 Broadcom ProxySG | ✅ | 2024-10-31 | Go 1.23 | Late 2024 (7.3.22.1) | [Github][go-70139]
-Apache Trafficserver | ❌ | 2024-11-13 | Chrome |  | [Github][github-apache]
+Apache Trafficserver | ✅ | 2024-11-13 | Chrome | 2025-06-25 | [Github][github-apache]
 
 _Table last updated 2025-04-04_
 
