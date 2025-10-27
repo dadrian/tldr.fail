@@ -170,7 +170,7 @@ Safari  | Unavailable    | Unavailable   | Unavailable   | n/a[^2]       | n/a[^
 Product | Status | Discovered | Via         | Patched | Links
 ------- | ------ | ---------- | ----------- | ------- | ------------------
 Vercel  | ✅     | 2023-08-15 | Chrome Beta | 2023-08-23         | [Twitter][twitter-vercel]
-ZScalar | ✅     | 2023-08-17 | Chrome Beta | 2023-09-28         |
+ZScaler | ✅     | 2023-08-17 | Chrome Beta | 2023-09-28         |
 Cisco   |        | 2024-04-23 | Chrome 124 | Unknown            | [Cisco Bug][cisco-bug]
 Envoy   | ✅     | 2024-04-29 | Chrome 124  | n/a (config-only ) | [Github][envoy-github-issue]
 Ingress Nginx | ❌[^5] | 2024-06-03 | Chrome 124 |  | [Github][ingress-nginx-github-issue]
